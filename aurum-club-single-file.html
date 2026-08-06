@@ -61,6 +61,37 @@ p{ margin:0 0 1em; color:var(--muted); }
 /* ---------- shell ---------- */
 .wrap{ max-width:1180px; margin:0 auto; padding:0 28px; }
 
+/* ---------- age gate ---------- */
+.age-gate{
+  position:fixed; inset:0; z-index:999;
+  background:rgba(6,12,10,0.97);
+  display:flex; align-items:center; justify-content:center;
+  padding:24px;
+}
+.age-gate[hidden]{ display:none; }
+.age-gate-card{
+  max-width:480px; text-align:center;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  padding:40px 32px; box-shadow:var(--shadow);
+}
+.age-gate-card .mark{
+  width:40px; height:40px; border-radius:50%;
+  background:conic-gradient(from 180deg, var(--gold-light), var(--gold), var(--gold-dim), var(--gold));
+  margin:0 auto 18px;
+}
+.age-gate-card h2{ color:var(--gold-light); font-size:1.5rem; }
+.age-gate-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:22px; }
+
+/* ---------- cookie banner ---------- */
+.cookie-banner{
+  position:fixed; left:0; right:0; bottom:0; z-index:900;
+  background:var(--surface); border-top:1px solid var(--line);
+  padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+}
+.cookie-banner[hidden]{ display:none; }
+.cookie-banner p{ margin:0; font-size:.85rem; max-width:640px; color:var(--muted); }
+.cookie-banner .btn{ padding:10px 20px; font-size:.85rem; }
+
 /* ---------- nav ---------- */
 .site-nav{
   position:sticky; top:0; z-index:50;
@@ -302,25 +333,6 @@ p{ margin:0 0 1em; color:var(--muted); }
 .hold-btn.held{ background:var(--gold); color:#1A1204; border-color:var(--gold); }
 .hand-verdict{ font-family:var(--font-mono); font-size:1rem; color:var(--gold-light); min-height:1.4em; }
 
-/* ---- crash game ---- */
-.crash-box{
-  width:100%; max-width:340px; height:190px; border-radius:12px;
-  background:var(--surface); border:1px solid var(--line); position:relative; overflow:hidden;
-}
-.crash-fill{
-  position:absolute; left:0; bottom:0; width:100%; height:4%;
-  background:linear-gradient(180deg, var(--gold-light), var(--felt-red));
-  transition:height .06s linear;
-  opacity:.35;
-}
-.crash-multiplier{
-  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  font-family:var(--font-display); font-size:2.6rem; color:var(--gold-light);
-  text-shadow:0 4px 20px rgba(0,0,0,0.5);
-}
-.crash-multiplier.busted{ color:var(--felt-red-lt); }
-.crash-controls{ display:flex; gap:12px; margin-top:18px; flex-wrap:wrap; }
-
 /* ---------- how / policy strip ---------- */
 .trust-grid{
   display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
@@ -374,6 +386,19 @@ footer{
 </head>
 <body>
 
+<!-- ================= AGE GATE (blocks all interaction until confirmed) ================= -->
+<div class="age-gate" id="age-gate">
+  <div class="age-gate-card">
+    <span class="mark"></span>
+    <h2>You must be 18 or older</h2>
+    <p>Aurum Club is a free, entertainment-only games lounge that uses virtual currency. No real money is ever wagered, purchased, or paid out. By entering, you confirm you are at least 18 (or the age of majority where you live) and understand this site is for amusement only.</p>
+    <div class="age-gate-actions">
+      <button class="btn btn-gold" id="age-confirm-btn">Yes, I'm 18 or older — Enter</button>
+      <a class="btn btn-ghost" href="https://www.google.com">I'm under 18 — Exit</a>
+    </div>
+  </div>
+</div>
+
 <a id="top"></a>
 <nav class="site-nav">
   <div class="wrap">
@@ -415,7 +440,7 @@ footer{
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">The floor</span>
-      <h2>Three tables. Zero stakes.</h2>
+      <h2>Casino-style tables. Zero stakes.</h2>
       <p>Pick a game, set a play-money bet, and spin. Your balance is stored only in this browser, purely to keep score.</p>
     </div>
 
@@ -425,7 +450,6 @@ footer{
       <button class="tab-btn" data-target="panel-roulette">🎡 Roulette</button>
       <button class="tab-btn" data-target="panel-blackjack">🃏 Blackjack</button>
       <button class="tab-btn" data-target="panel-poker">♠️ Video Poker</button>
-      <button class="tab-btn" data-target="panel-crash">🚀 Crash</button>
     </div>
 
     <!-- SLOTS -->
@@ -549,28 +573,6 @@ footer{
       </div>
     </div>
 
-    <!-- CRASH -->
-    <div class="game-panel" id="panel-crash">
-      <div class="info">
-        <h3>Aurum Rocket</h3>
-        <p>Place a bet and watch the multiplier climb. Cash out any time — but wait too long and it crashes, taking your bet with it.</p>
-        <p class="balance-lg">Balance: <strong class="js-balance">1,000</strong> coins</p>
-        <label for="crash-bet">Bet amount</label><br>
-        <input type="number" id="crash-bet" value="10" min="1" max="500" style="margin:8px 0 16px; padding:10px; width:120px; border-radius:8px; border:1px solid var(--line); background:var(--surface-2); color:var(--cream); font-family:var(--font-mono);">
-        <div class="crash-controls">
-          <button class="btn btn-gold" id="crash-start-btn">Launch</button>
-          <button class="btn btn-ghost" id="crash-cashout-btn" disabled>Cash out</button>
-        </div>
-        <p class="result-line" id="crash-result"></p>
-      </div>
-      <div class="stage">
-        <div class="crash-box">
-          <div class="crash-fill" id="crash-fill"></div>
-          <div class="crash-multiplier" id="crash-multiplier">1.00×</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -607,13 +609,20 @@ footer{
     <h2 style="font-size:2rem; margin-top:8px; color:var(--cream);">A lounge for play, not for stakes.</h2>
   </div>
   <div class="wrap">
-    <p>Aurum Club is a free browser-based entertainment site. It offers three casino-style mini-games — a slot machine, a dice table, and a roulette wheel — built purely for amusement. There is no way to deposit real money, and there is no way to withdraw anything of value.</p>
+    <p>Aurum Club is a free browser-based entertainment site. It offers casino-style mini-games — a slot machine, a dice table, a roulette wheel, blackjack, and video poker — built purely for amusement. There is no way to deposit real money, and there is no way to withdraw anything of value.</p>
 
     <h2>How the coins work</h2>
     <p>Every visitor starts with 1,000 virtual coins, tracked only in your own browser. Placing a bet moves coins from your balance into a round; winning a round adds coins back. If your balance ever reaches zero, it automatically refills so you can keep playing. These coins have no cash value, cannot be purchased, and cannot be exchanged, transferred, or redeemed for money, goods, or any other prize.</p>
 
     <h2>Who it's for</h2>
     <p>Aurum Club is intended for an adult audience (18 and over) looking for a lightweight, no-stakes way to pass a few minutes. It is not a gambling service, does not accept wagers of real money, and is not affiliated with any licensed casino or betting operator.</p>
+
+    <h2>Site operator</h2>
+    <p>
+      <strong>Aurum Club</strong><br>
+      Vishal Kunj, Delhi 110027, India<br>
+      Contact: <a href="mailto:kissan@aurumclub.site">kissan@aurumclub.site</a>
+    </p>
 
     <h2>Responsible play</h2>
     <p>Even without real money involved, we encourage playing in moderation. If gambling — real or simulated — ever stops feeling like entertainment, resources like the National Council on Problem Gambling (1-800-522-4700) are available for support.</p>
@@ -632,10 +641,10 @@ footer{
     <p>This policy explains what information Aurum Club collects and how it's used. We aim to collect as little as possible.</p>
 
     <h2>Information we store locally</h2>
-    <p>Your in-game coin balance is stored using your browser's local storage, on your own device. It is never transmitted to us or to any third party, and it disappears if you clear your browser data.</p>
+    <p>Your in-game coin balance and your age/cookie confirmation are stored using your browser's local storage, on your own device. This is never transmitted to us or to any third party, and it disappears if you clear your browser data.</p>
 
     <h2>Cookies and advertising</h2>
-    <p>This site may display third-party advertising (for example, through Google AdSense). Advertising partners may use cookies or similar technologies to serve ads based on your visits to this and other websites. You can learn more about how Google uses data from partner sites and manage your ad preferences at Google's official Ads Settings page. We do not control third-party advertising cookies directly.</p>
+    <p>This site may display third-party advertising (for example, through Google AdSense). Advertising partners may use cookies or similar technologies to serve ads based on your visits to this and other websites. You can learn more about how Google uses data from partner sites and manage your ad preferences at Google's official Ads Settings page. We do not control third-party advertising cookies directly. A cookie notice is shown on your first visit so you can review this before continuing to use the site.</p>
 
     <h2>Analytics</h2>
     <p>We may use standard web analytics tools to understand aggregate traffic, such as page views and general browser type. This data is anonymized and is not used to identify individual visitors.</p>
@@ -644,7 +653,7 @@ footer{
     <p>Aurum Club does not require account creation, does not process payments, and does not collect names, emails, or financial information through normal use of the games. If you contact us directly, we only use the information you provide to respond to you.</p>
 
     <h2>Children's privacy</h2>
-    <p>This site is intended for adults (18+) and is not directed at children. We do not knowingly collect information from children under 13.</p>
+    <p>This site is intended for adults (18+) and is not directed at children. We do not knowingly collect information from children under 13, and access requires confirming you are 18 or older before the games become available.</p>
 
     <h2>Changes to this policy</h2>
     <p>We may update this policy from time to time. Continued use of the site after changes are posted means you accept the revised policy.</p>
@@ -663,7 +672,7 @@ footer{
     <p>By using Aurum Club, you agree to the following terms.</p>
 
     <h2>Entertainment only</h2>
-    <p>Aurum Club provides simulated casino-style games — a slot machine, a dice table, and a roulette wheel — using virtual coins with no monetary value. No real-money wagering takes place. Coins cannot be purchased, sold, transferred, withdrawn, or exchanged for cash, goods, or any prize of value.</p>
+    <p>Aurum Club provides simulated casino-style games — including a slot machine, a dice table, a roulette wheel, blackjack, and video poker — using virtual coins with no monetary value. No real-money wagering takes place. Coins cannot be purchased, sold, transferred, withdrawn, or exchanged for cash, goods, or any prize of value.</p>
 
     <h2>Eligibility</h2>
     <p>This site is intended for users aged 18 and over. By using the site, you confirm that you meet this age requirement.</p>
@@ -694,11 +703,11 @@ footer{
     <h2 style="font-size:2rem; margin-top:8px; color:var(--cream);">Contact Aurum Club</h2>
   </div>
   <div class="wrap">
-    <p>Replace the email address below with your own before publishing this site — it's the address visitors and Google's review team will use to reach you.</p>
+    <p>Have a question about the games, the site, or these policies? Reach out below.</p>
 
     <div class="trust-card" style="margin-top:24px;">
       <span class="eyebrow">Email</span>
-      <h3><a href="mailto:hello@yourdomain.example">hello@yourdomain.example</a></h3>
+      <h3><a href="mailto:kissan@aurumclub.site">kissan@aurumclub.site</a></h3>
       <p style="margin-top:10px;">We aim to respond within a few business days. For privacy questions, see our <a href="#privacy">Privacy Policy</a>.</p>
     </div>
   </div>
@@ -730,6 +739,12 @@ footer{
   </div>
 </footer>
 
+<!-- ================= COOKIE NOTICE ================= -->
+<div class="cookie-banner" id="cookie-banner" hidden>
+  <p>We use cookies for basic analytics and to serve ads through partners like Google AdSense. By continuing to use this site, you agree to our <a href="#privacy">Privacy Policy</a>.</p>
+  <button class="btn btn-gold" id="cookie-accept-btn">Got it</button>
+</div>
+
 <script>
 /* ============================================================
    AURUM CLUB — game logic
@@ -740,6 +755,8 @@ footer{
 
 const STARTING_BALANCE = 1000;
 const BALANCE_KEY = 'aurum_club_balance';
+const AGE_KEY = 'aurum_age_confirmed';
+const COOKIE_KEY = 'aurum_cookie_ack';
 
 function getBalance(){
   const v = localStorage.getItem(BALANCE_KEY);
@@ -766,6 +783,45 @@ function refillIfEmpty(){
 
 document.addEventListener('DOMContentLoaded', () => {
   setBalance(getBalance());
+
+  /* ---------------- age gate ---------------- */
+  const ageGate = document.getElementById('age-gate');
+  const ageConfirmBtn = document.getElementById('age-confirm-btn');
+  if (ageGate){
+    if (localStorage.getItem(AGE_KEY) === 'yes'){
+      ageGate.setAttribute('hidden', '');
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+    if (ageConfirmBtn){
+      ageConfirmBtn.addEventListener('click', () => {
+        localStorage.setItem(AGE_KEY, 'yes');
+        ageGate.setAttribute('hidden', '');
+        document.body.style.overflow = '';
+        maybeShowCookieBanner();
+      });
+    }
+  }
+
+  /* ---------------- cookie banner ---------------- */
+  const cookieBanner = document.getElementById('cookie-banner');
+  const cookieAcceptBtn = document.getElementById('cookie-accept-btn');
+  function maybeShowCookieBanner(){
+    if (!cookieBanner) return;
+    if (localStorage.getItem(COOKIE_KEY) !== 'yes'){
+      cookieBanner.removeAttribute('hidden');
+    }
+  }
+  if (cookieAcceptBtn){
+    cookieAcceptBtn.addEventListener('click', () => {
+      localStorage.setItem(COOKIE_KEY, 'yes');
+      cookieBanner.setAttribute('hidden', '');
+    });
+  }
+  // Only surface the cookie banner once the age gate is already cleared.
+  if (!ageGate || localStorage.getItem(AGE_KEY) === 'yes'){
+    maybeShowCookieBanner();
+  }
 
   /* ---------------- tabs ---------------- */
   const tabButtons = document.querySelectorAll('.tab-btn');
@@ -1185,70 +1241,6 @@ document.addEventListener('DOMContentLoaded', () => {
       refillIfEmpty();
       pkDealBtn.disabled = false;
       pkDrawBtn.disabled = true;
-    });
-  }
-
-  /* ================= CRASH ================= */
-  let crashTimer = null, crashMultiplier = 1, crashPoint = 1, crashBet = 0, crashLive = false;
-  const crashMultEl = document.getElementById('crash-multiplier');
-  const crashFillEl = document.getElementById('crash-fill');
-  const crashResultEl = document.getElementById('crash-result');
-  const crashStartBtn = document.getElementById('crash-start-btn');
-  const crashCashoutBtn = document.getElementById('crash-cashout-btn');
-  const crashBetInput = document.getElementById('crash-bet');
-
-  function rollCrashPoint(){
-    // Exponential-style distribution: mostly low multipliers, occasional big runs.
-    const r = Math.max(Math.random(), 0.0001);
-    const point = 0.97 / r; // house-edge factor baked in
-    return Math.min(Math.max(point, 1.01), 40);
-  }
-
-  if (crashStartBtn){
-    crashStartBtn.addEventListener('click', () => {
-      crashBet = parseInt(crashBetInput.value, 10) || 10;
-      if (getBalance() < crashBet){
-        crashResultEl.textContent = "Not enough coins for that bet.";
-        return;
-      }
-      adjustBalance(-crashBet);
-      crashPoint = rollCrashPoint();
-      crashMultiplier = 1;
-      crashLive = true;
-      crashResultEl.textContent = '';
-      crashMultEl.classList.remove('busted');
-      crashStartBtn.disabled = true;
-      crashCashoutBtn.disabled = false;
-
-      crashTimer = setInterval(() => {
-        crashMultiplier *= 1.018;
-        crashMultEl.textContent = crashMultiplier.toFixed(2) + '×';
-        crashFillEl.style.height = Math.min(100, (crashMultiplier / crashPoint) * 100) + '%';
-
-        if (crashMultiplier >= crashPoint){
-          clearInterval(crashTimer);
-          crashLive = false;
-          crashMultEl.classList.add('busted');
-          crashResultEl.textContent = `Crashed at ${crashPoint.toFixed(2)}×. Bet lost.`;
-          crashStartBtn.disabled = false;
-          crashCashoutBtn.disabled = true;
-          refillIfEmpty();
-        }
-      }, 60);
-    });
-  }
-
-  if (crashCashoutBtn){
-    crashCashoutBtn.addEventListener('click', () => {
-      if (!crashLive) return;
-      clearInterval(crashTimer);
-      crashLive = false;
-      const payout = Math.round(crashBet * crashMultiplier);
-      adjustBalance(payout);
-      crashResultEl.textContent = `Cashed out at ${crashMultiplier.toFixed(2)}× for ${payout} coins!`;
-      crashStartBtn.disabled = false;
-      crashCashoutBtn.disabled = true;
-      refillIfEmpty();
     });
   }
 

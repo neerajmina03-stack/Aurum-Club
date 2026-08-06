@@ -31,7 +31,7 @@
   --font-body:     'Inter', system-ui, sans-serif;
   --font-mono:     'Space Mono', 'Courier New', monospace;
 }
-
+ 
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
 body{
@@ -49,7 +49,7 @@ img{ max-width:100%; display:block; }
 h1,h2,h3{ font-family:var(--font-display); font-weight:700; margin:0 0 .4em; letter-spacing:.01em; }
 p{ margin:0 0 1em; color:var(--muted); }
 :focus-visible{ outline:2px solid var(--gold-light); outline-offset:3px; }
-
+ 
 .eyebrow{
   font-family:var(--font-mono);
   font-size:.72rem;
@@ -57,10 +57,10 @@ p{ margin:0 0 1em; color:var(--muted); }
   text-transform:uppercase;
   color:var(--gold);
 }
-
+ 
 /* ---------- shell ---------- */
 .wrap{ max-width:1180px; margin:0 auto; padding:0 28px; }
-
+ 
 /* ---------- age gate ---------- */
 .age-gate{
   position:fixed; inset:0; z-index:999;
@@ -81,7 +81,7 @@ p{ margin:0 0 1em; color:var(--muted); }
 }
 .age-gate-card h2{ color:var(--gold-light); font-size:1.5rem; }
 .age-gate-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:22px; }
-
+ 
 /* ---------- cookie banner ---------- */
 .cookie-banner{
   position:fixed; left:0; right:0; bottom:0; z-index:900;
@@ -91,7 +91,7 @@ p{ margin:0 0 1em; color:var(--muted); }
 .cookie-banner[hidden]{ display:none; }
 .cookie-banner p{ margin:0; font-size:.85rem; max-width:640px; color:var(--muted); }
 .cookie-banner .btn{ padding:10px 20px; font-size:.85rem; }
-
+ 
 /* ---------- nav ---------- */
 .site-nav{
   position:sticky; top:0; z-index:50;
@@ -125,7 +125,7 @@ p{ margin:0 0 1em; color:var(--muted); }
   white-space:nowrap;
 }
 .nav-toggle{ display:none; }
-
+ 
 /* ---------- hero ---------- */
 .hero{
   padding:96px 0 70px;
@@ -146,7 +146,7 @@ p{ margin:0 0 1em; color:var(--muted); }
 }
 .hero .lede{ font-size:1.08rem; max-width:46ch; }
 .hero-ctas{ display:flex; gap:16px; margin-top:28px; flex-wrap:wrap; }
-
+ 
 .btn{
   display:inline-flex; align-items:center; gap:8px;
   padding:14px 26px; border-radius:999px;
@@ -162,7 +162,7 @@ p{ margin:0 0 1em; color:var(--muted); }
 .btn-ghost{
   background:transparent; border-color:var(--line); color:var(--cream);
 }
-
+ 
 .disclaimer-badge{
   margin-top:30px;
   display:inline-flex; align-items:center; gap:10px;
@@ -171,7 +171,7 @@ p{ margin:0 0 1em; color:var(--muted); }
   padding:10px 16px; border-radius:10px;
 }
 .disclaimer-badge strong{ color:var(--gold); }
-
+ 
 /* signature coin */
 .coin-stage{
   perspective:900px; display:flex; justify-content:center; align-items:center;
@@ -206,12 +206,12 @@ p{ margin:0 0 1em; color:var(--muted); }
 @media (prefers-reduced-motion: reduce){
   .coin{ animation:none; }
 }
-
+ 
 /* ---------- section shell ---------- */
 .section{ padding:80px 0; }
 .section-head{ max-width:640px; margin-bottom:44px; }
 .section-head h2{ font-size:clamp(1.8rem,3vw,2.4rem); color:var(--cream); }
-
+ 
 /* ---------- game tabs ---------- */
 .game-tabs{
   display:flex; gap:12px; margin-bottom:36px; flex-wrap:wrap;
@@ -225,7 +225,7 @@ p{ margin:0 0 1em; color:var(--muted); }
   background:var(--gold); color:#1A1204; border-color:var(--gold);
 }
 .tab-btn:hover:not(.active){ border-color:var(--gold-dim); color:var(--cream); }
-
+ 
 .game-panel{
   display:none;
   background:
@@ -239,7 +239,7 @@ p{ margin:0 0 1em; color:var(--muted); }
 .game-panel.active{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
 .game-panel .info h3{ font-size:1.5rem; color:var(--gold-light); }
 .game-panel .stage{ display:flex; flex-direction:column; align-items:center; gap:18px; }
-
+ 
 /* ---- slot machine ---- */
 .reels{
   display:flex; gap:8px; background:var(--surface); padding:16px; border-radius:10px;
@@ -256,7 +256,7 @@ p{ margin:0 0 1em; color:var(--muted); }
   50%{ transform:translateY(6px); }
   100%{ transform:translateY(-6px); filter:blur(1px); }
 }
-
+ 
 /* ---- dice ---- */
 .dice-row{ display:flex; gap:20px; }
 .die{
@@ -272,7 +272,7 @@ p{ margin:0 0 1em; color:var(--muted); }
 }
 .pip{ width:12px; height:12px; border-radius:50%; background:#1A1204; align-self:center; justify-self:center; opacity:0; }
 .pip.on{ opacity:1; }
-
+ 
 /* ---- roulette ---- */
 .wheel-wrap{ position:relative; width:260px; height:260px; }
 .wheel{
@@ -286,7 +286,7 @@ p{ margin:0 0 1em; color:var(--muted); }
   width:0; height:0; border-left:10px solid transparent; border-right:10px solid transparent;
   border-top:18px solid var(--gold-light); z-index:2;
 }
-
+ 
 /* ---- controls ---- */
 .chip-row{ display:flex; gap:10px; flex-wrap:wrap; }
 .chip{
@@ -299,7 +299,7 @@ p{ margin:0 0 1em; color:var(--muted); }
 .result-line{ font-family:var(--font-mono); font-size:.95rem; min-height:1.4em; color:var(--gold-light); }
 .balance-lg{ font-family:var(--font-mono); font-size:1.05rem; color:var(--cream); }
 .balance-lg strong{ color:var(--gold-light); }
-
+ 
 /* ---- playing cards (blackjack / video poker) ---- */
 .hand-block{ margin-bottom:18px; }
 .hand-label{ font-family:var(--font-mono); font-size:.78rem; color:var(--muted); margin-bottom:8px; letter-spacing:.05em; text-transform:uppercase; }
@@ -322,7 +322,7 @@ p{ margin:0 0 1em; color:var(--muted); }
   from{ opacity:0; transform:translateY(-14px) scale(.9); }
   to{ opacity:1; transform:translateY(0) scale(1); }
 }
-
+ 
 .poker-row{ display:flex; gap:10px; flex-wrap:wrap; }
 .poker-slot{ display:flex; flex-direction:column; align-items:center; gap:8px; }
 .hold-btn{
@@ -332,7 +332,7 @@ p{ margin:0 0 1em; color:var(--muted); }
 }
 .hold-btn.held{ background:var(--gold); color:#1A1204; border-color:var(--gold); }
 .hand-verdict{ font-family:var(--font-mono); font-size:1rem; color:var(--gold-light); min-height:1.4em; }
-
+ 
 /* ---------- how / policy strip ---------- */
 .trust-grid{
   display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
@@ -343,7 +343,7 @@ p{ margin:0 0 1em; color:var(--muted); }
 }
 .trust-card .eyebrow{ display:block; margin-bottom:8px; }
 .trust-card h3{ font-size:1.15rem; color:var(--cream); }
-
+ 
 /* ---------- footer ---------- */
 footer{
   border-top:1px solid var(--line);
@@ -360,7 +360,7 @@ footer{
   border-top:1px solid var(--line); padding-top:24px;
   font-size:.78rem; color:var(--muted); line-height:1.7;
 }
-
+ 
 /* ---------- simple content pages ---------- */
 .page-hero{ padding:64px 0 40px; border-bottom:1px solid var(--line); }
 .page-hero .eyebrow{ margin-bottom:10px; display:block; }
@@ -369,7 +369,7 @@ footer{
 .content h2{ margin-top:2em; color:var(--gold-light); font-size:1.4rem; }
 .content ul{ color:var(--muted); }
 .content li{ margin-bottom:8px; }
-
+ 
 /* ---------- responsive ---------- */
 @media (max-width: 880px){
   .hero .wrap{ grid-template-columns:1fr; }
@@ -381,11 +381,11 @@ footer{
   .foot-grid{ grid-template-columns:1fr; }
   .nav-links{ display:none; }
 }
-
+ 
   </style>
 </head>
 <body>
-
+ 
 <!-- ================= AGE GATE (blocks all interaction until confirmed) ================= -->
 <div class="age-gate" id="age-gate">
   <div class="age-gate-card">
@@ -398,7 +398,7 @@ footer{
     </div>
   </div>
 </div>
-
+ 
 <a id="top"></a>
 <nav class="site-nav">
   <div class="wrap">
@@ -412,7 +412,7 @@ footer{
     <div class="balance-pill">🪙 <span class="js-balance">1,000</span> coins</div>
   </div>
 </nav>
-
+ 
 <header class="hero">
   <div class="wrap">
     <div>
@@ -435,7 +435,7 @@ footer{
     </div>
   </div>
 </header>
-
+ 
 <section class="section" id="games">
   <div class="wrap">
     <div class="section-head">
@@ -443,7 +443,7 @@ footer{
       <h2>Casino-style tables. Zero stakes.</h2>
       <p>Pick a game, set a play-money bet, and spin. Your balance is stored only in this browser, purely to keep score.</p>
     </div>
-
+ 
     <div class="game-tabs" role="tablist">
       <button class="tab-btn active" data-target="panel-slots">🎰 Slot Machine</button>
       <button class="tab-btn" data-target="panel-dice">🎲 Dice Table</button>
@@ -451,7 +451,7 @@ footer{
       <button class="tab-btn" data-target="panel-blackjack">🃏 Blackjack</button>
       <button class="tab-btn" data-target="panel-poker">♠️ Video Poker</button>
     </div>
-
+ 
     <!-- SLOTS -->
     <div class="game-panel active" id="panel-slots">
       <div class="info">
@@ -472,7 +472,7 @@ footer{
         </div>
       </div>
     </div>
-
+ 
     <!-- DICE -->
     <div class="game-panel" id="panel-dice">
       <div class="info">
@@ -499,7 +499,7 @@ footer{
         </div>
       </div>
     </div>
-
+ 
     <!-- ROULETTE -->
     <div class="game-panel" id="panel-roulette">
       <div class="info">
@@ -525,7 +525,7 @@ footer{
         </div>
       </div>
     </div>
-
+ 
     <!-- BLACKJACK -->
     <div class="game-panel" id="panel-blackjack">
       <div class="info">
@@ -551,7 +551,7 @@ footer{
         </div>
       </div>
     </div>
-
+ 
     <!-- VIDEO POKER -->
     <div class="game-panel" id="panel-poker">
       <div class="info">
@@ -572,10 +572,10 @@ footer{
         <div class="poker-row" id="poker-hand"></div>
       </div>
     </div>
-
+ 
   </div>
 </section>
-
+ 
 <section class="section" style="padding-top:0;">
   <div class="wrap">
     <div class="section-head">
@@ -601,8 +601,8 @@ footer{
     </div>
   </div>
 </section>
-
-
+ 
+ 
 <section class="content" id="about">
   <div class="wrap" style="max-width:760px; margin-bottom:8px;">
     <span class="eyebrow">About the club</span>
@@ -610,28 +610,28 @@ footer{
   </div>
   <div class="wrap">
     <p>Aurum Club is a free browser-based entertainment site. It offers casino-style mini-games — a slot machine, a dice table, a roulette wheel, blackjack, and video poker — built purely for amusement. There is no way to deposit real money, and there is no way to withdraw anything of value.</p>
-
+ 
     <h2>How the coins work</h2>
     <p>Every visitor starts with 1,000 virtual coins, tracked only in your own browser. Placing a bet moves coins from your balance into a round; winning a round adds coins back. If your balance ever reaches zero, it automatically refills so you can keep playing. These coins have no cash value, cannot be purchased, and cannot be exchanged, transferred, or redeemed for money, goods, or any other prize.</p>
-
+ 
     <h2>Who it's for</h2>
     <p>Aurum Club is intended for an adult audience (18 and over) looking for a lightweight, no-stakes way to pass a few minutes. It is not a gambling service, does not accept wagers of real money, and is not affiliated with any licensed casino or betting operator.</p>
-
+ 
     <h2>Site operator</h2>
     <p>
       <strong>Aurum Club</strong><br>
       Vishal Kunj, Delhi 110027, India<br>
       Contact: <a href="mailto:kissan@aurumclub.site">kissan@aurumclub.site</a>
     </p>
-
+ 
     <h2>Responsible play</h2>
     <p>Even without real money involved, we encourage playing in moderation. If gambling — real or simulated — ever stops feeling like entertainment, resources like the National Council on Problem Gambling (1-800-522-4700) are available for support.</p>
-
+ 
     <h2>Questions</h2>
     <p>Reach out any time through the <a href="#contact">contact page</a>, or read our <a href="#privacy">privacy policy</a> and <a href="#terms">terms of use</a> for more detail.</p>
   </div>
 </section>
-
+ 
 <section class="content" id="privacy">
   <div class="wrap" style="max-width:760px; margin-bottom:8px;">
     <span class="eyebrow">Legal</span>
@@ -639,30 +639,30 @@ footer{
   </div>
   <div class="wrap">
     <p>This policy explains what information Aurum Club collects and how it's used. We aim to collect as little as possible.</p>
-
+ 
     <h2>Information we store locally</h2>
     <p>Your in-game coin balance and your age/cookie confirmation are stored using your browser's local storage, on your own device. This is never transmitted to us or to any third party, and it disappears if you clear your browser data.</p>
-
+ 
     <h2>Cookies and advertising</h2>
     <p>This site may display third-party advertising (for example, through Google AdSense). Advertising partners may use cookies or similar technologies to serve ads based on your visits to this and other websites. You can learn more about how Google uses data from partner sites and manage your ad preferences at Google's official Ads Settings page. We do not control third-party advertising cookies directly. A cookie notice is shown on your first visit so you can review this before continuing to use the site.</p>
-
+ 
     <h2>Analytics</h2>
     <p>We may use standard web analytics tools to understand aggregate traffic, such as page views and general browser type. This data is anonymized and is not used to identify individual visitors.</p>
-
+ 
     <h2>No account, no payment data</h2>
     <p>Aurum Club does not require account creation, does not process payments, and does not collect names, emails, or financial information through normal use of the games. If you contact us directly, we only use the information you provide to respond to you.</p>
-
+ 
     <h2>Children's privacy</h2>
     <p>This site is intended for adults (18+) and is not directed at children. We do not knowingly collect information from children under 13, and access requires confirming you are 18 or older before the games become available.</p>
-
+ 
     <h2>Changes to this policy</h2>
     <p>We may update this policy from time to time. Continued use of the site after changes are posted means you accept the revised policy.</p>
-
+ 
     <h2>Contact</h2>
     <p>Questions about this policy can be sent through our <a href="#contact">contact page</a>.</p>
   </div>
 </section>
-
+ 
 <section class="content" id="terms">
   <div class="wrap" style="max-width:760px; margin-bottom:8px;">
     <span class="eyebrow">Legal</span>
@@ -670,33 +670,33 @@ footer{
   </div>
   <div class="wrap">
     <p>By using Aurum Club, you agree to the following terms.</p>
-
+ 
     <h2>Entertainment only</h2>
     <p>Aurum Club provides simulated casino-style games — including a slot machine, a dice table, a roulette wheel, blackjack, and video poker — using virtual coins with no monetary value. No real-money wagering takes place. Coins cannot be purchased, sold, transferred, withdrawn, or exchanged for cash, goods, or any prize of value.</p>
-
+ 
     <h2>Eligibility</h2>
     <p>This site is intended for users aged 18 and over. By using the site, you confirm that you meet this age requirement.</p>
-
+ 
     <h2>No gambling service</h2>
     <p>Aurum Club is not a licensed gambling operator and does not offer real-money gambling, betting, or lottery services in any jurisdiction. Nothing on this site should be interpreted as an offer to gamble for real stakes.</p>
-
+ 
     <h2>Fair use</h2>
     <p>You agree not to attempt to disrupt, reverse-engineer for malicious purposes, or abuse the site's games or infrastructure.</p>
-
+ 
     <h2>No warranty</h2>
     <p>The site and its games are provided "as is," without warranties of any kind. Virtual balances, odds, and outcomes are for entertainment purposes and may be reset, adjusted, or discontinued at any time.</p>
-
+ 
     <h2>Limitation of liability</h2>
     <p>Because no real money or prizes are ever at stake, Aurum Club and its operators are not liable for any loss related to virtual coin balances or game outcomes.</p>
-
+ 
     <h2>Changes</h2>
     <p>These terms may be updated periodically. Continued use of the site after updates constitutes acceptance of the revised terms.</p>
-
+ 
     <h2>Contact</h2>
     <p>Questions about these terms can be sent through our <a href="#contact">contact page</a>.</p>
   </div>
 </section>
-
+ 
 <section class="content" id="contact">
   <div class="wrap" style="max-width:760px; margin-bottom:8px;">
     <span class="eyebrow">Get in touch</span>
@@ -704,7 +704,7 @@ footer{
   </div>
   <div class="wrap">
     <p>Have a question about the games, the site, or these policies? Reach out below.</p>
-
+ 
     <div class="trust-card" style="margin-top:24px;">
       <span class="eyebrow">Email</span>
       <h3><a href="mailto:kissan@aurumclub.site">kissan@aurumclub.site</a></h3>
@@ -712,7 +712,7 @@ footer{
     </div>
   </div>
 </section>
-
+ 
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -738,13 +738,13 @@ footer{
     </div>
   </div>
 </footer>
-
+ 
 <!-- ================= COOKIE NOTICE ================= -->
 <div class="cookie-banner" id="cookie-banner" hidden>
   <p>We use cookies for basic analytics and to serve ads through partners like Google AdSense. By continuing to use this site, you agree to our <a href="#privacy">Privacy Policy</a>.</p>
   <button class="btn btn-gold" id="cookie-accept-btn">Got it</button>
 </div>
-
+ 
 <script>
 /* ============================================================
    AURUM CLUB — game logic
@@ -752,12 +752,12 @@ footer{
    ever connects to a payment processor, and no winnings can be
    withdrawn, transferred, or redeemed for anything of value.
    ============================================================ */
-
+ 
 const STARTING_BALANCE = 1000;
 const BALANCE_KEY = 'aurum_club_balance';
 const AGE_KEY = 'aurum_age_confirmed';
 const COOKIE_KEY = 'aurum_cookie_ack';
-
+ 
 function getBalance(){
   const v = localStorage.getItem(BALANCE_KEY);
   return v === null ? STARTING_BALANCE : parseInt(v, 10);
@@ -780,10 +780,10 @@ function refillIfEmpty(){
   }
   return false;
 }
-
+ 
 document.addEventListener('DOMContentLoaded', () => {
   setBalance(getBalance());
-
+ 
   /* ---------------- age gate ---------------- */
   const ageGate = document.getElementById('age-gate');
   const ageConfirmBtn = document.getElementById('age-confirm-btn');
@@ -802,7 +802,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
-
+ 
   /* ---------------- cookie banner ---------------- */
   const cookieBanner = document.getElementById('cookie-banner');
   const cookieAcceptBtn = document.getElementById('cookie-accept-btn');
@@ -822,7 +822,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!ageGate || localStorage.getItem(AGE_KEY) === 'yes'){
     maybeShowCookieBanner();
   }
-
+ 
   /* ---------------- tabs ---------------- */
   const tabButtons = document.querySelectorAll('.tab-btn');
   const panels = document.querySelectorAll('.game-panel');
@@ -834,7 +834,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById(btn.dataset.target).classList.add('active');
     });
   });
-
+ 
   /* ================= SLOT MACHINE ================= */
   const SYMBOLS = ['🍒','🍋','🔔','⭐','💎','7️⃣'];
   const PAYOUTS = { '🍒':2, '🍋':3, '🔔':5, '⭐':8, '💎':15, '7️⃣':25 };
@@ -842,9 +842,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const spinBtn = document.getElementById('spin-btn');
   const slotBet = document.getElementById('slot-bet');
   const slotResult = document.getElementById('slot-result');
-
+ 
   function randomSymbol(){ return SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)]; }
-
+ 
   if (spinBtn){
     spinBtn.addEventListener('click', () => {
       const bet = parseInt(slotBet.value, 10) || 10;
@@ -856,10 +856,10 @@ document.addEventListener('DOMContentLoaded', () => {
       spinBtn.disabled = true;
       reels.forEach(r => r.classList.add('spinning'));
       slotResult.textContent = 'Spinning…';
-
+ 
       const finalSymbols = [randomSymbol(), randomSymbol(), randomSymbol()];
       const spinDuration = [900, 1200, 1500];
-
+ 
       reels.forEach((reel, i) => {
         let ticks = 0;
         const flicker = setInterval(() => { reel.textContent = randomSymbol(); ticks++; }, 70);
@@ -875,7 +875,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
+ 
   function settleSlot(symbols, bet){
     const [a,b,c] = symbols;
     let payout = 0;
@@ -891,14 +891,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (payout > 0) adjustBalance(payout);
     refillIfEmpty();
   }
-
+ 
   /* ================= DICE ================= */
   const rollBtn = document.getElementById('roll-btn');
   const diceBet = document.getElementById('dice-bet');
   const diceGuess = document.getElementById('dice-guess');
   const diceResult = document.getElementById('dice-result');
   const dieEls = document.querySelectorAll('.die');
-
+ 
   const PIP_LAYOUTS = {
     1: [4],
     2: [0,8],
@@ -916,7 +916,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   dieEls.forEach(el => renderDie(el, 1));
-
+ 
   if (rollBtn){
     rollBtn.addEventListener('click', () => {
       const bet = parseInt(diceBet.value, 10) || 10;
@@ -928,7 +928,7 @@ document.addEventListener('DOMContentLoaded', () => {
       rollBtn.disabled = true;
       dieEls.forEach(el => el.classList.add('rolling'));
       diceResult.textContent = 'Rolling…';
-
+ 
       setTimeout(() => {
         const d1 = 1 + Math.floor(Math.random()*6);
         const d2 = 1 + Math.floor(Math.random()*6);
@@ -936,13 +936,13 @@ document.addEventListener('DOMContentLoaded', () => {
         renderDie(dieEls[0], d1);
         renderDie(dieEls[1], d2);
         dieEls.forEach(el => el.classList.remove('rolling'));
-
+ 
         const guess = diceGuess.value; // 'low' (2-6), 'seven' (7), 'high' (8-12)
         let win = false, payout = 0;
         if (guess === 'low' && total <= 6){ win = true; payout = bet * 2; }
         if (guess === 'high' && total >= 8){ win = true; payout = bet * 2; }
         if (guess === 'seven' && total === 7){ win = true; payout = bet * 5; }
-
+ 
         if (win){
           adjustBalance(payout);
           diceResult.textContent = `Rolled ${d1} + ${d2} = ${total}. You win ${payout} coins!`;
@@ -954,7 +954,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 650);
     });
   }
-
+ 
   /* ================= ROULETTE ================= */
   const wheel = document.getElementById('roulette-wheel');
   const spinWheelBtn = document.getElementById('roulette-spin-btn');
@@ -962,7 +962,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const rouletteResult = document.getElementById('roulette-result');
   const chips = document.querySelectorAll('.chip[data-choice]');
   let currentChoice = 'red';
-
+ 
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
       chips.forEach(c => c.classList.remove('selected'));
@@ -970,11 +970,11 @@ document.addEventListener('DOMContentLoaded', () => {
       currentChoice = chip.dataset.choice;
     });
   });
-
+ 
   // 18 red / 18 black / 1 green(0), simplified into 12 wedges for the visual wheel
   const WEDGE_COLORS = ['red','black','red','black','red','black','red','black','red','black','red','green'];
   let wheelRotation = 0;
-
+ 
   function buildWheelGradient(){
     const step = 360 / WEDGE_COLORS.length;
     const stops = WEDGE_COLORS.map((c, i) => {
@@ -984,7 +984,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (wheel) wheel.style.background = `conic-gradient(${stops})`;
   }
   buildWheelGradient();
-
+ 
   if (spinWheelBtn){
     spinWheelBtn.addEventListener('click', () => {
       const bet = parseInt(rouletteBet.value, 10) || 10;
@@ -995,14 +995,14 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustBalance(-bet);
       spinWheelBtn.disabled = true;
       rouletteResult.textContent = 'Spinning…';
-
+ 
       const wedgeIndex = Math.floor(Math.random() * WEDGE_COLORS.length);
       const landedColor = WEDGE_COLORS[wedgeIndex];
       const step = 360 / WEDGE_COLORS.length;
       const targetAngle = 360 * 5 + (wedgeIndex * step) + step/2;
       wheelRotation = targetAngle;
       wheel.style.transform = `rotate(${wheelRotation}deg)`;
-
+ 
       setTimeout(() => {
         let payout = 0;
         if (currentChoice === landedColor && landedColor !== 'green'){
@@ -1021,11 +1021,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 3500);
     });
   }
-
+ 
   /* ================= shared card deck helpers ================= */
   const SUITS = ['♠','♥','♦','♣'];
   const RANKS = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
-
+ 
   function freshDeck(){
     const deck = [];
     SUITS.forEach(s => RANKS.forEach(r => deck.push({ r, s })));
@@ -1044,7 +1044,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="rank-bottom">${card.r}</div>
     </div>`;
   }
-
+ 
   /* ================= BLACKJACK ================= */
   let bjDeck = [], bjPlayer = [], bjDealer = [], bjBet = 0, bjActive = false;
   const bjDealerHandEl = document.getElementById('bj-dealer-hand');
@@ -1056,7 +1056,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const bjHitBtn = document.getElementById('bj-hit-btn');
   const bjStandBtn = document.getElementById('bj-stand-btn');
   const bjBetInput = document.getElementById('bj-bet');
-
+ 
   function handTotal(cards){
     let total = 0, aces = 0;
     cards.forEach(c => {
@@ -1067,14 +1067,14 @@ document.addEventListener('DOMContentLoaded', () => {
     while (total > 21 && aces > 0){ total -= 10; aces--; }
     return total;
   }
-
+ 
   function renderBlackjack(hideDealerHole){
     bjDealerHandEl.innerHTML = bjDealer.map((c,i) => cardHTML(c, hideDealerHole && i === 1)).join('');
     bjPlayerHandEl.innerHTML = bjPlayer.map(c => cardHTML(c, false)).join('');
     bjPlayerTotalEl.textContent = `— ${handTotal(bjPlayer)}`;
     bjDealerTotalEl.textContent = hideDealerHole ? '' : `— ${handTotal(bjDealer)}`;
   }
-
+ 
   if (bjDealBtn){
     bjDealBtn.addEventListener('click', () => {
       bjBet = parseInt(bjBetInput.value, 10) || 10;
@@ -1092,13 +1092,13 @@ document.addEventListener('DOMContentLoaded', () => {
       bjDealBtn.disabled = true;
       bjHitBtn.disabled = false;
       bjStandBtn.disabled = false;
-
+ 
       if (handTotal(bjPlayer) === 21){
         finishBlackjack();
       }
     });
   }
-
+ 
   if (bjHitBtn){
     bjHitBtn.addEventListener('click', () => {
       if (!bjActive) return;
@@ -1109,7 +1109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
+ 
   if (bjStandBtn){
     bjStandBtn.addEventListener('click', () => {
       if (!bjActive) return;
@@ -1119,19 +1119,19 @@ document.addEventListener('DOMContentLoaded', () => {
       finishBlackjack();
     });
   }
-
+ 
   function finishBlackjack(){
     bjActive = false;
     bjHitBtn.disabled = true;
     bjStandBtn.disabled = true;
     bjDealBtn.disabled = false;
     renderBlackjack(false);
-
+ 
     const playerTotal = handTotal(bjPlayer);
     const dealerTotal = handTotal(bjDealer);
     const playerBJ = playerTotal === 21 && bjPlayer.length === 2;
     let payout = 0, message = '';
-
+ 
     if (playerTotal > 21){
       message = `Bust at ${playerTotal}. Dealer wins.`;
     } else if (playerBJ){
@@ -1153,7 +1153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bjResultEl.textContent = message;
     refillIfEmpty();
   }
-
+ 
   /* ================= VIDEO POKER ================= */
   let pkDeck = [], pkHand = [], pkHeld = [false,false,false,false,false], pkBet = 0, pkStage = 'idle';
   const pkHandEl = document.getElementById('poker-hand');
@@ -1161,9 +1161,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const pkDealBtn = document.getElementById('poker-deal-btn');
   const pkDrawBtn = document.getElementById('poker-draw-btn');
   const pkBetInput = document.getElementById('poker-bet');
-
+ 
   const RANK_VALUE = {'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'J':11,'Q':12,'K':13,'A':14};
-
+ 
   function evaluatePokerHand(cards){
     const ranks = cards.map(c => RANK_VALUE[c.r]).sort((a,b) => a-b);
     const suits = cards.map(c => c.s);
@@ -1172,7 +1172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const counts = {};
     ranks.forEach(r => counts[r] = (counts[r] || 0) + 1);
     const countValues = Object.values(counts).sort((a,b) => b-a);
-
+ 
     if (isFlush && isStraight && ranks[0] === 10) return { name: 'Royal Flush', mult: 250 };
     if (isFlush && isStraight) return { name: 'Straight Flush', mult: 50 };
     if (countValues[0] === 4) return { name: 'Four of a Kind', mult: 25 };
@@ -1187,7 +1187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return { name: 'No Win', mult: 0 };
   }
-
+ 
   function renderPoker(){
     pkHandEl.innerHTML = pkHand.map((c,i) => `
       <div class="poker-slot">
@@ -1205,7 +1205,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
+ 
   if (pkDealBtn){
     pkDealBtn.addEventListener('click', () => {
       pkBet = parseInt(pkBetInput.value, 10) || 10;
@@ -1224,7 +1224,7 @@ document.addEventListener('DOMContentLoaded', () => {
       pkDrawBtn.disabled = false;
     });
   }
-
+ 
   if (pkDrawBtn){
     pkDrawBtn.addEventListener('click', () => {
       pkHand = pkHand.map((c,i) => pkHeld[i] ? c : pkDeck.pop());
@@ -1243,7 +1243,7 @@ document.addEventListener('DOMContentLoaded', () => {
       pkDrawBtn.disabled = true;
     });
   }
-
+ 
   /* ---------- reset balance control (if present) ---------- */
   const resetBtn = document.getElementById('reset-balance');
   if (resetBtn){
@@ -1252,7 +1252,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
+ 
   </script>
 </body>
 </html>
+ 
